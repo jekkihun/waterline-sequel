@@ -141,7 +141,8 @@ Sequel.prototype.count = function count(currentTable, queryObject) {
   if (_.isEmpty(whereObject.query)) {
       this.queries[0] += alias;
   } else {
-      this.queries[0] += '(SELECT * FROM ' + tableName + ' ' + whereObject.query + ') AS ' + alias;
+      this.queries[0] += tableName + ' ' + whereObject.query;
+      // this.queries[0] += '(SELECT * FROM ' + tableName + ' ' + whereObject.query + ') AS ' + alias;
   }
   this.values[0] = whereObject.values;
 
